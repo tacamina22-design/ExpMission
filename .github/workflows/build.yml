@@ -24,21 +24,14 @@ jobs:
         with:
           flutter-version: '3.22.0'
 
-      - name: Show folder structure
-        run: ls -R
-
       - name: Install dependencies
-        run: |
-          cd ExpMission
-          flutter pub get
+        run: flutter pub get
 
       - name: Build APK
-        run: |
-          cd ExpMission
-          flutter build apk --release
+        run: flutter build apk --release
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
           name: app-release
-          path: ExpMission/build/app/outputs/flutter-apk/app-release.apk
+          path: build/app/outputs/flutter-apk/app-release.apk
